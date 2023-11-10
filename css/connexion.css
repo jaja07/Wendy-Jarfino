@@ -1,0 +1,20 @@
+body {
+    background-color: #02092A;
+}
+
+.p1 {
+    font-weight: bold;
+    color: white;
+}
+
+.container {
+    transform: translate(350px, 100px);
+}
+
+.form-label {
+    color: white;
+}
+
+.form-check-label {
+    color: white;
+}
