@@ -15,6 +15,12 @@
             "request": "launch",
             "name": "Open accueil.html",
             "file": "c:\\UwAmp\\www\\Wendy-Jarfino\\html\\accueil.html"
+        },
+        {
+            "type": "php",
+            "request": "launch",
+            "name": "Open inscription.php",
+            "runtimeExecutable": "c:\\UwAmp\\www\\Wendy-Jarfino\\php\\inscription.php"
         }
     ]
 }
