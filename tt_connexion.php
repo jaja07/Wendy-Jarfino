@@ -9,8 +9,8 @@ if ($connexion->connect_error) {
 
 if (isset($_POST['submit'])) {
     // Récupérer les données du formulaire
-    $email = $_POST['email'];
-    $pswd = $_POST['pswd'];
+    $email = htmlentities($_POST['email']);
+    $pswd = htmlentities($_POST['pswd']);
 
     // Récupération des emails et des mots de passe depuis la base de données
     $result_email = $connexion->query("SELECT email FROM user");
@@ -32,6 +32,7 @@ if (isset($_POST['submit'])) {
         }
     }
 
+    // Redirection vers la page adaptée
     if($test_email==1 && $test_pswd==1){
         header('Location: index.php');
         exit();
