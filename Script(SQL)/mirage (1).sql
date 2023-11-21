@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1
+-- http://www.phpmyadmin.net
 --
--- Hôte : 127.0.0.1
--- Généré le : dim. 19 nov. 2023 à 21:41
--- Version du serveur : 10.4.28-MariaDB
--- Version de PHP : 8.2.4
+-- Client :  localhost
+-- Généré le :  Mar 21 Novembre 2023 à 14:48
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -18,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `mirage`
+-- Base de données :  `mirage`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +30,7 @@ CREATE TABLE `creneau` (
   `idCreneau` int(11) NOT NULL,
   `date` date DEFAULT NULL,
   `idJeux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -46,7 +45,18 @@ CREATE TABLE `jeux` (
   `categorie` varchar(50) NOT NULL,
   `regle` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `jeux`
+--
+
+INSERT INTO `jeux` (`idJeux`, `nom`, `description`, `categorie`, `regle`, `image`) VALUES
+(7, 'Uno', 'Uno ...', 'Cartes', 'La_rÃ¨gle_du_Uno.pdf', 'Uno.jpg'),
+(9, 'Monopoly', 'Le monopoly est un jeu ...', 'Plateau', 'La_rÃ¨gle_du_Monopoly.pdf', 'Monopoly.jpg'),
+(10, 'Mancala', 'Mancala est un jeu ...', 'SociÃ©tÃ©', 'La_rÃ¨gle_du_Mancala.pdf', 'Jeu 1.jpg'),
+(11, 'Marelle', 'Marelle ...', 'Plateau', 'La_rÃ¨gle_de_la_Marelle.pdf', 'Jeu de marelle.jpg'),
+(12, 'Cartes', 'Cartes ....', 'Hasard', 'La_rÃ¨gle_de_la_Marelle.pdf', 'Jeu de cartes.jpg');
 
 -- --------------------------------------------------------
 
@@ -57,7 +67,7 @@ CREATE TABLE `jeux` (
 CREATE TABLE `jouer` (
   `idUser` int(11) NOT NULL,
   `idJeux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -72,17 +82,18 @@ CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `role` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `user`
+-- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`idUser`, `nom`, `prenom`, `email`, `password`, `role`) VALUES
-(1, 'AH', 'Jojo', 'jojo@gmail.com', 'jojo1234', 0);
+(1, 'AH', 'Jojo', 'jojo@gmail.com', '$2y$10$I2BeC5CKm4.JVuxTO03h3.uf3Fx19z50cS2TVWjRj6fvcDtaiUqsK', 2),
+(2, 'HOUNGBADJI', 'Jarfino', 'jarfinohoungbadji@gmail.com', '$2y$12$SZZzLhGbS8v6mF.cxvybBef/pcgQSSE2LfPvMLcYRKBB.YlKUjj56', 1);
 
 --
--- Index pour les tables déchargées
+-- Index pour les tables exportées
 --
 
 --
@@ -114,7 +125,7 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`idUser`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
@@ -122,27 +133,23 @@ ALTER TABLE `user`
 --
 ALTER TABLE `creneau`
   MODIFY `idCreneau` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `jeux`
 --
 ALTER TABLE `jeux`
-  MODIFY `idJeux` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `idJeux` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `jouer`
 --
 ALTER TABLE `jouer`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- Contraintes pour les tables déchargées
+-- Contraintes pour les tables exportées
 --
 
 --
@@ -157,7 +164,6 @@ ALTER TABLE `creneau`
 ALTER TABLE `jouer`
   ADD CONSTRAINT `jouer_ibfk_1` FOREIGN KEY (`idJeux`) REFERENCES `jeux` (`idJeux`),
   ADD CONSTRAINT `jouer_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,1 +1,0 @@
-<?php echo 'Bonjour, ceci est ma page dynamique!'; ?>
