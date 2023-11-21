@@ -28,7 +28,6 @@
     <h1>Accueil</h1>
         
     <!-- Liste des jeux -->
-    <form method="POST" action="tt_pageJeux.php" enctype="multipart/form-data">
         <section class="container">
             <div class="container-md grille">
                 <div class="row line">
@@ -41,7 +40,7 @@
                             '
                             <div class="col-lg-3 grid-item">
                                 
-                                    <a href=" '. $nomSansExtension .'.php"><img src="' . $image . '" alt="Image" class="img-thumbnail image"></a>
+                                    <a href=" ./temp/'. $nomSansExtension .'.php"><img src="' . $image . '" alt="Image" class="img-thumbnail image"></a>
                                 
                             </div>   ';
                              /*echo  '<div class="col-lg-3 grid-item"><a href="chess.php"><img src="' . $image . '" alt="Image" class="img-thumbnail image"></a> </div>';*/
@@ -50,7 +49,7 @@
                 </div>
             </div>
         </section>
-    </form>
+    
 
 </div>
 <?php

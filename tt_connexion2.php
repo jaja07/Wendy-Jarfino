@@ -35,7 +35,7 @@
                   
                   $_SESSION['message'] = "Authentification réussi pour un admin.";
                  
-                  header('Location: accueilAdmin.php');
+                  header('Location: accueilAdmin2.php');
                 }
                 if($row["role"]==2)
                 {
@@ -46,14 +46,14 @@
               }else { 
                 // Redirection vers la page d'authetification connexion.php
               $_SESSION['message'] = "Erreur de connexion";
-                header('Location: connexion.php');
+                header('Location: connexion2.php');
                 
               }    
         
     }else{
         
       $_SESSION['message'] = "Erreur de connexion";
-         header('Location: connexion.php');
+         header('Location: connexion2.php');
         }
     }
 

@@ -20,36 +20,13 @@
       <!-- Eléments à droite -->
       <ul class="navbar-nav mb-lg-0">
             <li class="nav-item">
-                <!--<a class="nav-link"  href="#">Ajouter</a>
-                <div class="dropdown-content sub-menu">
-                    <a href="addGame.php">Jeu</a>
-                    <a href="#">Créneau</a>
-                </div>-->
-                <div class="dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                    Ajouter
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="addGame.php">Jeu</a></li>
-                    <li><a class="dropdown-item" href="#">Créneau</a></li>
-                </ul>
-                </div>
+                <a class="nav-link" href="jeuAdmin.php">Jeu</a>
             </li>
             <li class="nav-item">
-                <!--<a class="nav-link"  href="inscription.php">Inscription</a>-->
-                <div class="dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                    Supprimer
-                </button>
-                </div>
+                <a class="nav-link" href="creneauAdmin.php">Créneaux</a>
             </li>
             <li class="nav-item">
-                <!--<a class="nav-link" href="connexion2.php">Connexion</a>-->
-                <div class="dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                    Se déconnecter
-                </button>
-                </div>
+                <a class="nav-link" href="membreAdmin.php">Membres</a>
             </li>
       </ul>
 

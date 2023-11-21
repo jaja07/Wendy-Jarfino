@@ -11,16 +11,23 @@ $image=$_FILES['image']['name'];//recupérer le nom original du fichier image te
 $regleTemp=$_FILES['regle']['tmp_name'];//recupérer le nom du fichier temporaire regle téléchargé sur le serveur.
 $imageTemp=$_FILES['image']['tmp_name'];//recupérer le nom du fichier temporaire image téléchargé sur le serveur.
 
+
+
 // Validation des fichiers
 $typesAutorises = ['application/pdf', 'image/jpeg', 'image/png']; // Exemple : autoriser les fichiers PDF, JPEG et PNG; les valeurs dans ce tableau correspondent aux types MIME (Multipurpose Internet Mail Extensions)
 
 if (in_array($_FILES['regle']['type'], $typesAutorises) && in_array($_FILES['image']['type'], $typesAutorises)) // Vérifie si on retrouve dans le tableau $typesAutorises les valeaurs des variables $_FILES['regle']['type']
 {
 move_uploaded_file($regleTemp,'./Regles/'.$regle);//transférer le fichier dans le dossier regles du projet
-move_uploaded_file($imageTemp,'./Images/'.$image);//transférer le fichier dans le dossier image du projet
+move_uploaded_file($imageTemp,'./Images/'.$image);//transférer le fichier dans le dossier Images du projet
 } else {
     echo "Type de fichier non autorisé.";
 }
+
+$infoFichier = pathinfo('./Images/'.$image);
+$nouveau_nom = $infoFichier['dirname'] . '/' . $nom .  '.' . $infoFichier['extension'];
+rename('./Images/'.$image, $nouveau_nom);
+
 
 // Création du fichier php
 $nomFichier = $nom.'.php';
