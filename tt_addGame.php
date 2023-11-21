@@ -24,9 +24,15 @@ move_uploaded_file($imageTemp,'./Images/'.$image);//transférer le fichier dans 
     echo "Type de fichier non autorisé.";
 }
 
-$infoFichier = pathinfo('./Images/'.$image);
-$nouveau_nom = $infoFichier['dirname'] . '/' . $nom .  '.' . $infoFichier['extension'];
-rename('./Images/'.$image, $nouveau_nom);
+//On renomme les fichiers images
+$infoFichierImage = pathinfo('./Images/'.$image);
+$nouveau_nom_image = $infoFichierImage['dirname'] . '/' . $nom .  '.' . $infoFichierImage['extension'];
+rename('./Images/'.$image, $nouveau_nom_image);
+
+//On renomme les fichiers regle
+$infoFichierRegle = pathinfo('./Regles/'.$regle);
+$nouveau_nom_regle = $infoFichierRegle['dirname'] . '/' . $nom .  '.' . $infoFichierRegle['extension'];
+rename('./Regles/'.$regle, $nouveau_nom_regle);
 
 
 // Création du fichier php
@@ -42,7 +48,7 @@ $stmt->bindParam(':nom', $nom);
 $stmt->bindParam(':description', $description);
 $stmt->bindParam(':categorie', $categorie);
 $stmt->bindParam(':regle', $regle);
-$stmt->bindParam(':image', $image);
+$stmt->bindParam(':image', $nouveau_nom_image);
 
 if($stmt->execute()) {
 $_SESSION['message'] = "Ajout réussi.";
