@@ -14,6 +14,7 @@
         </li>
       </ul>
       <ul class="navbar-nav mb-lg-0">
+        
         <li class="nav-item">
           <a class="nav-link"  href="inscription.php">Inscription</a>
         </li>

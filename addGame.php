@@ -1,8 +1,8 @@
 <?php
     session_start();
-    $titre = "Inscription";
+    $titre = "Ajouter des jeux";
     include 'header.inc.php';
-    include 'menu.inc.php';
+    include 'menuAdmin.inc.php';
 ?>
 <div class="container">
 <h1>Ajouter un Jeu</h1>

@@ -44,8 +44,8 @@ CREATE TABLE `jeux` (
   `nom` varchar(100) NOT NULL,
   `description` varchar(255) NOT NULL,
   `categorie` varchar(50) NOT NULL,
-  `regle` longblob NOT NULL,
-  `image` longblob NOT NULL
+  `regle` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------

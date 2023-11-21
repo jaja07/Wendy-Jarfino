@@ -1,41 +1,46 @@
 <?php
-include 'param.inc.php';
-// Initialisation de la connexion
-$connexion = new mysqli($host, $login, $passwd, $dbname);
+session_start(); // Pour les massages
 
-if ($connexion->connect_error) {
-    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+$nom=$_POST['nom'];
+$description = $_POST['description'];
+$categorie = $_POST['categorie'];
+
+$regle=$_FILES['regle']['name'];//recupérer le nom original du fichier regle tel que sur la machine du client web 
+$image=$_FILES['image']['name'];//recupérer le nom original du fichier image tel que sur la machine du client web
+
+$regleTemp=$_FILES['regle']['tmp_name'];//recupérer le nom du fichier temporaire regle téléchargé sur le serveur.
+$imageTemp=$_FILES['image']['tmp_name'];//recupérer le nom du fichier temporaire image téléchargé sur le serveur.
+
+// Validation des fichiers
+$typesAutorises = ['application/pdf', 'image/jpeg', 'image/png']; // Exemple : autoriser les fichiers PDF, JPEG et PNG; les valeurs dans ce tableau correspondent aux types MIME (Multipurpose Internet Mail Extensions)
+
+if (in_array($_FILES['regle']['type'], $typesAutorises) && in_array($_FILES['image']['type'], $typesAutorises)) // Vérifie si on retrouve dans le tableau $typesAutorises les valeaurs des variables $_FILES['regle']['type']
+{
+move_uploaded_file($regleTemp,'./Regles/'.$regle);//transférer le fichier dans le dossier regles du projet
+move_uploaded_file($imageTemp,'./Images/'.$image);//transférer le fichier dans le dossier image du projet
+} else {
+    echo "Type de fichier non autorisé.";
 }
 
-if (isset($_POST['submit'])) {
-    // Récupérer les données du formulaire
-    $nom = $_POST['nom'];
-    $description = $_POST['description'];
-    $categorie = $_POST['categorie'];
+// Création du fichier php
+$nomFichier = $nom.'.php';
+include 'pageJeux.inc.php';
+// Fin de création du fichier
 
-    // Charger la règle depuis le fichier
-    $regle_contenu = file_get_contents($_FILES['regle']['tmp_name']);
+//Connexion à la base de données
+include("connpdo.php");
+$req="INSERT INTO jeux (nom, description, categorie, regle, image) VALUES (:nom, :description, :categorie, :regle, :image)";
+$stmt=$pdo->prepare($req);
+$stmt->bindParam(':nom', $nom);
+$stmt->bindParam(':description', $description);
+$stmt->bindParam(':categorie', $categorie);
+$stmt->bindParam(':regle', $regle);
+$stmt->bindParam(':image', $image);
 
-    // Charger l'image depuis le fichier
-    $image_contenu = file_get_contents($_FILES['image']['tmp_name']);
+if($stmt->execute()) {
+$_SESSION['message'] = "Ajout réussi.";
+header("location:accueilAdmin.php");
+} else {  $_SESSION['message'] = "Problème Ajout.";
 
-    // Préparer la requête SQL avec une déclaration préparée
-    $stmt = $connexion->prepare("INSERT INTO jeux (nom, description, categorie, regle, image) VALUES (?, ?, ?, ?, ?)");
-
-    // Liaison des paramètres
-    $stmt->bind_param("sssss", $nom, $description, $categorie, $regle_contenu, $image_contenu);
-
-    // Exécution de la requête
-    if ($stmt->execute()) {
-        echo "Le jeu a été ajouté avec succès.";
-    } else {
-        echo "Erreur lors de l'ajout du jeu : " . $stmt->error;
-    }
-
-    // Fermeture de la déclaration
-    $stmt->close();
-}
-
-// Fermeture de la connexion à la base de données
-$connexion->close();
-?>
+    header("location:accueilAdmin.php");  }
+?> 

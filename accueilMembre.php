@@ -28,53 +28,55 @@
         unset($_SESSION['message']);
     }
 ?>
-        <h1>ESIG'GAMES</h1>
-        <p>
-            <a href="cartes.php"> <img class="left" 
-             src="photos\cartes.PNG" width="250" height="150" 
-             alt="cartes" title="" style="float:left;margin:10px 100px 50px 20px;" />
-            </a>
+        <h1>Accueil</h1>
+        <a href="addGame.php" class="btn btn-outline-primary"></a>
+        <!-- Liste des jeux -->
+        <section class="container">
+            <div class="container-md grille">
+                <div class="row line">
+                     <?php
+                        /*
+                        include 'param.inc.php';
 
-            <a href="marelle.php"><img class="left" 
-             src="photos\marelle.PNG" width="250" height="150" 
-             alt="marelle" title="" style="float:left;margin:10px 100px 50px 20px;" />
-            </a>
+                        // Initialisation de la connexion à la base de données
+                        $connexion = new mysqli($host, $login, $passwd, $dbname);
 
-             <a href="mancala.php"><img class="left" 
-             src="photos\mancala.PNG" width="250" height="150" 
-             alt="mancala" title="" style="float:left;margin:10px 100px 50px 20px;" />
-             </a>
+                        if ($connexion->connect_error) {
+                            die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+                        }
 
-             <a href="echecs.php"><img class="center" 
-             src="photos\echecs.PNG" width="250" height="150" 
-             alt="echecs" title="" style="float:center;margin:10px 100px 50px 20px;" />
-             </a>
+                         // Récupération des images depuis la base de données
+                        $result = $connexion->query("SELECT image FROM jeux");
 
-             <a href="ludo.php"><img class="center" 
-             src="photos\ludo.PNG" width="250" height="150" 
-             alt="ludo" title="" style="float:center;margin:10px 100px 50px 20px;" />
-             </a>
-             
-             <a href="uno.php"><img class="center" 
-             src="photos\uno.PNG" width="250" height="150" 
-             alt="uno" title="" style="float:center;margin:10px 100px 50px 20px;" />
-             </a>
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                /* Affichage de l'image 
+                                La fonction base64_encode convertie l'image depuis sa représentation binaire stockée dans la BDD en une URL de data
+                                echo '<div class="col-lg-3 grid-item"><a href="chess.php"><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '" alt="Image" class="img-thumbnail image"></a> </div>';
+                                
+                            }
+                        } else {
+                            echo "Aucune image trouvée dans la base de données.";
+                        }
 
-             <a href="dames.php"><img class="right" 
-             src="photos\dame.PNG" width="250" height="150" 
-             alt="dames" title="" style="float:center;margin:10px 100px 50px 20px;" />
-             </a>
+                        // Fermeture de la connexion à la base de données
+                        $connexion->close();*/
 
-             <a href="monopoly.php"><img class="right" 
-             src="photos\monopoly.PNG" width="250" height="150" 
-             alt="monopoly" title="" style="float:center;margin:10px 100px 50px 20px;" />
-             </a>
+                        // Répertoire où sont stockées les images
+                        $chemin = "Images/";
 
-             <a href="loup garou.php"><img class="right" 
-             src="photos\loup garou.PNG" width="250" height="150" 
-             alt="loup garou" title="" style="float:center;margin:10px 100px 50px 20px;" />
-            </a>
-            </p>
+                        // Récupération de la liste des fichiers images
+                        $images = glob($chemin . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+
+                        // Affichage des images dans la galerie
+                        foreach ($images as $image) {
+                            echo  '<div class="col-lg-3 grid-item"><a href="chess.php"><img src="' . $image . '" alt="Image" class="img-thumbnail image"></a> </div>';
+                        }
+
+                    ?>
+                </div>
+            </div>
+        </section>
         
 
 </div>
