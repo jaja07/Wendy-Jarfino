@@ -47,13 +47,13 @@ $stmt=$pdo->prepare($req);
 $stmt->bindParam(':nom', $nom);
 $stmt->bindParam(':description', $description);
 $stmt->bindParam(':categorie', $categorie);
-$stmt->bindParam(':regle', $regle);
+$stmt->bindParam(':regle', $nouveau_nom_regle);
 $stmt->bindParam(':image', $nouveau_nom_image);
 
 if($stmt->execute()) {
 $_SESSION['message'] = "Ajout réussi.";
-header("location:accueilAdmin.php");
+header("location:accueilAdmin2.php");
 } else {  $_SESSION['message'] = "Problème Ajout.";
 
-    header("location:accueilAdmin.php");  }
+    header("location:accueilAdmin2.php");  }
 ?> 

@@ -74,4 +74,8 @@
         </tbody>
     </table>
 
+     <button type="button" class="btn btn-outline" style="float:right">
+        <a  href="addGame.php">Ajouter</a>
+    </button>
+
 </div>
