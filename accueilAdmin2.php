@@ -7,7 +7,7 @@
 
 ?>
 
-<div class="coontainer">
+<div class="container">
 
 
     <?php

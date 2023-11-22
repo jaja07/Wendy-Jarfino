@@ -7,7 +7,7 @@
 
 ?>
 
-<div class="coontainer">
+<div class="container">
 
 
     <?php
@@ -38,7 +38,7 @@
         <tbody>
 
             <?php
-                global $db;
+                
                 $i = 1;
 
                 //Connexion à la base de données
@@ -47,14 +47,6 @@
                 $stmt=$pdo->prepare($req);
                 $stmt->execute();
                 
-                
-
-                /* Utilisation de "ORDER BY" pour ordonner les résultats par ID membre
-                $req = $db->prepare("SELECT * FROM jeux INNER JOIN  imagejeux on(jeux.id_jeux=imagejeux.id_jeux_images)ORDER BY id_jeux");
-                $req->execute();
-
-                /*  $req1 = $db->prepare("SELECT * FROM imagejeux ORDER BY id_imagejeux");
-                $req1->execute(); && $user1 = $req1->fetch()*/
 
                 while ($user = $stmt->fetch() ) {
                     echo '<tr>';
