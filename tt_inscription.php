@@ -36,7 +36,7 @@
   }
 
   // Redirection vers la page de connexion par exemple :
-  header('Location: index.php');
+  header('Location: accueilMembre.php');
 
 
 ?>

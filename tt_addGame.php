@@ -1,5 +1,5 @@
 <?php
-session_start(); // Pour les massages
+require_once('roleAdmin.php');
 
 $nom=$_POST['nom'];
 $description = $_POST['description'];
