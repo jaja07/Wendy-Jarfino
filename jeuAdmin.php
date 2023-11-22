@@ -65,8 +65,8 @@
                     echo '<td>' . $user['categorie'] . '</td>';
                     echo '<td>' . $user['regle'] . '</td>';
                     echo '<td>' . $user['image'] . '</td>';
-                    echo '<td><a href="traitementUpdatejeux.php?idjeux=' . $user['idJeux'] . '&nomjeux=' . $user['nom'] . '&descriptions=' . $user['description'] . '&categorie=' . $user['categorie'] . '">Modifier</a></td>';
-                    echo '<td><a href="traitementSupressionJeux.php?idjeux=' . $user['idJeux'] . '" >Supprimer</a></td>';
+                    echo '<td><a href="traitementUpdatejeux.php?idJeux=' . $user['idJeux'] . '&nomjeux=' . $user['nom'] . '&descriptions=' . $user['description'] . '&categorie=' . $user['categorie'] . '">Modifier</a></td>';
+                    echo '<td><a href="traitementSuppressionJeux.php?idJeux=' . $user['idJeux'] . '" >Supprimer</a></td>';
                     echo '</tr>';
                     $i++;
                 }
