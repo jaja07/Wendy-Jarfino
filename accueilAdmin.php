@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    require_once('roleAdmin.php');
     $titre = "Accueil";
     include 'header.inc.php';
     include 'menuAdmin.inc.php';
@@ -13,6 +13,7 @@
 
 
     <?php
+      
          if(isset($_SESSION['message'])) {
             echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
             echo $_SESSION['message'];

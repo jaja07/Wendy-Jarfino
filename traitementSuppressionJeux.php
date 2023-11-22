@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+require_once('roleAdmin.php');
 // Valider et nettoyer l'ID
 $id = isset($_GET['idJeux']) ? intval($_GET['idJeux']) : 0;
 var_dump($id);

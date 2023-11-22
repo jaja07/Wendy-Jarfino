@@ -1,8 +1,9 @@
 <?php
-    session_start();
+    require_once('roleAdmin.php');
     $titre = "Ajouter des jeux";
     include 'header.inc.php';
     include 'menuAdmin.inc.php';
+    
 ?>
 <div class="container">
 <h1>Ajouter un Jeu</h1>
