@@ -1,6 +1,6 @@
 <?php
 // Ouvrir le fichier en mode écriture (créez-le s'il n'existe pas)
-$nomComplet = './temp/'.$nomFichier;
+$nomComplet = 'temp/'.$nomFichier;
 $handle = fopen($nomComplet, "w");
 
 // Vérifier si l'ouverture du fichier a réussi

@@ -1,5 +1,5 @@
 <?php
-   require_once('roledmin.php');
+   require_once('roleadmin.php');
     $titre = "Accueil";
     include 'header.inc.php';
     include 'menuAdmin.inc.php';

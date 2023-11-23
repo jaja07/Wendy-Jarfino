@@ -1,4 +1,5 @@
 <?php
+    
     require_once('roleAdmin.php');
     $titre = "Accueil";
     include 'header.inc.php';
@@ -58,8 +59,8 @@
                     echo '<td>' . $user['categorie'] . '</td>';
                     echo '<td>' . $user['regle'] . '</td>';
                     echo '<td>' . $user['image'] . '</td>';
-                    echo '<td><a href="traitementUpdatejeux.php?idJeux=' . $user['idJeux'] . '&nomjeux=' . $user['nom'] . '&descriptions=' . $user['description'] . '&categorie=' . $user['categorie'] . '">Modifier</a></td>';
-                    echo '<td><a href="traitementSuppressionJeux.php?idJeux=' . $user['idJeux'] . '" >Supprimer</a></td>';
+                    echo '<td><a href="updateJeux.php?idJeux=' . $user['idJeux'] . '" >Modifier</a></td>';
+                    echo '<td><a href="tt_SuppressionJeux.php?idJeux=' . $user['idJeux'] . '" >Supprimer</a></td>';
                     echo '</tr>';
                     $i++;
                 }
