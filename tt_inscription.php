@@ -29,7 +29,7 @@
     // Le message est mis dans la session, il est préférable de séparer message normal et message d'erreur.
     if($stmt->execute()) {
         $_SESSION['message'] = "Enregistrement réussi";
-
+        $idUser=($row["idUser"]);
     } else {
         $_SESSION['message'] =  "Impossible d'enregistrer";
     }
