@@ -3,7 +3,8 @@
 require_once('roleMembre.php');
 include 'header.inc.php';
 include 'menuMembre.inc.php';
-$titre = "Liste créneaux";
+$titre = "Mes créneaux";
+
   // Connexion :
   require_once("param.inc.php");
   $mysqli = new mysqli($host, $login, $passwd, $dbname);
@@ -25,7 +26,7 @@ $titre = "Liste créneaux";
             unset($_SESSION['message']);
             }
     ?>
-    <h1>Listes des créneaux disponibles</h1>
+    <h1>MES CRENEAUX</h1>
 
     
     <table class="table">
@@ -34,28 +35,28 @@ $titre = "Liste créneaux";
                 <th scope="col">ID Creneau</th>
                 <th scope="col">Date</th>
                 <th scope="col">Jeu</th>
-                <th scope="col">Option</th>
+                <th scope="col">Statut</th>
             </tr>
         </thead>
         <tbody>
 
             <?php
-               // Récupérer les créneaux de jeux depuis la table "jeux"
-                $query = "SELECT creneau.idCreneau, creneau.date, jeux.nom FROM creneau INNER JOIN jeux ON creneau.idJeux=jeux.idJeux ";
+               // Récupérer les créneaux de jeux depuis la table inscription
+                $query = "SELECT creneau.idCreneau, creneau.date, jeux.nom, inscription.statut, inscription.idUser FROM jeux JOIN creneau ON jeux.idJeux=creneau.idJeux JOIN inscription ON creneau.idCreneau=inscription.idCreneau ";
                 $result = $mysqli->query($query);
-
-                if ($result->num_rows > 0) {
-                    $i=0;
+                
+                    if ($result->num_rows > 0) {
+                    //if($row['idUser']=$_SESSION['PROFILE']['idUser']){
                     while ($row = $result->fetch_assoc()) {
                     echo '<tr>';
                     echo '<td>' . $row['idCreneau'] . '</td>';
                     echo '<td>' . $row['date'] . '</td>';
                     echo '<td>' . $row['nom'] . '</td>';
-                    echo '<td><a href="tt_creneauMembre.php?idCreneau=' . $row['idCreneau'] . '">Inscription</a></td>';
+                    echo '<td>' . $row['statut'] . '</td>';
                     echo '</td>';
                     echo '</tr>';
                     }
-                }
+                }//}
                 // Fermer la connexion
                     $mysqli->close();
             ?>

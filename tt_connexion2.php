@@ -5,6 +5,7 @@
   
   $email =  htmlentities($_POST['email']);
   $password = htmlentities($_POST['password']);
+ 
   
   // Connexion :
   require_once("param.inc.php");
@@ -41,10 +42,13 @@
                 {
                 $_SESSION['message'] = "Authentification réussi pour un membre.";
                 header('Location: accueilMembre.php');
+               
               }          
-            
-              }else { 
-                // Redirection vers la page d'authetification connexion.php
+              
+              }
+
+              else { 
+                // Redirection vers la page d'authentification connexion.php
               $_SESSION['message'] = "Erreur de connexion";
                 header('Location: connexion2.php');
                 
