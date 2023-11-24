@@ -1,6 +1,7 @@
 <?php
+    
     require_once('roleAdmin.php');
-    $titre = "Accueil";
+    $titre = $nom;
     include 'header.inc.php';
     include 'menuAdmin.inc.php';
 
@@ -20,15 +21,17 @@
             unset($_SESSION['message']);
             }
     ?>
-    <h1>Liste des créneaux</h1>
+    <h1></h1>
 
-    <table class="table table-dark table-hover">
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Créneaux</th>
-                <th scope="col">Jeux</th>
-                <th scope="col">Supprimer</th>
+                <th scope="col">ID Jeux</th>
+                <th scope="col">Nom Jeux</th>
+                <th scope="col">Descriptions</th>
+                <th scope="col">Categorie</th>
+                <th scope="col">Regles</th>
             </tr>
         </thead>
         <tbody>
@@ -38,27 +41,24 @@
                 $i = 1;
 
                 //Connexion à la base de données
-                include("connpdo.php");
-                $req="SELECT * FROM creneau NATURAL JOIN jeux ";
+                $req="SELECT * FROM jeux WHERE nom = ?";
                 $stmt=$pdo->prepare($req);
+                $stmt->bindParam(1, $nom, PDO::PARAM_INT);
                 $stmt->execute();
                 
 
-                while ($creneaux = $stmt->fetch() ) {
+                while ($row = $stmt->fetch() ) {
                     echo '<tr>';
                     echo '<th scope="row">' . $i . '</th>';
-                    echo '<td>' . $creneaux['date'] . '</td>';
-                    echo '<td>' . $creneaux['nom'] . '</td>';
-                    echo '<td><a href="tt_SuppressionCreneau.php?idCreneau=' . $creneaux['idCreneau'] . '" >Supprimer</a></td>';
+                    echo '<td>' . $row['idJeux'] . '</td>';
+                    echo '<td>' . $row['nom'] . '</td>';
+                    echo '<td>' . $row['description'] . '</td>';
+                    echo '<td>' . $row['categorie'] . '</td>';
+                    echo '<a href='.$row['regle'].' target="_blank">Télécharger le PDF</a>';
                     echo '</tr>';
                     $i++;
                 }
             ?>
         </tbody>
     </table>
-
-     <button type="button" class="btn btn-outline" style="float:right">
-        <a  href="addCreneau.php">Ajouter</a>
-    </button>
-
 </div>

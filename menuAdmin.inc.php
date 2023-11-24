@@ -12,9 +12,7 @@
             <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
             </li>
-            <li class="nav-item">
-            <a class="nav-link" href="page.php">Une page</a>
-            </li>
+            
       </ul>
 
       <!-- Eléments à droite -->
@@ -26,7 +24,10 @@
                 <a class="nav-link" href="creneauAdmin.php">Créneaux</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="membreAdmin.php">Membres</a>
+                <a class="nav-link" href="listMembres.php">Membres</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout.php">Déconnexion</a>
             </li>
       </ul>
 

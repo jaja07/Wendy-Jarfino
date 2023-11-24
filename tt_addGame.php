@@ -11,8 +11,6 @@ $image=$_FILES['image']['name'];//recupérer le nom original du fichier image te
 $regleTemp=$_FILES['regle']['tmp_name'];//recupérer le nom du fichier temporaire regle téléchargé sur le serveur.
 $imageTemp=$_FILES['image']['tmp_name'];//recupérer le nom du fichier temporaire image téléchargé sur le serveur.
 
-
-
 // Validation des fichiers
 $typesAutorises = ['application/pdf', 'image/jpeg', 'image/png']; // Exemple : autoriser les fichiers PDF, JPEG et PNG; les valeurs dans ce tableau correspondent aux types MIME (Multipurpose Internet Mail Extensions)
 
@@ -23,22 +21,7 @@ move_uploaded_file($imageTemp,'Images/'.$nom.'.png');//transférer le fichier da
 } else {
     echo "Type de fichier non autorisé.";
 }
-/*
-//On renomme les fichiers images
-$infoFichierImage = pathinfo('./Images/'.$image);
-$nouveau_nom_image = $infoFichierImage['dirname'] . '/' . $nom .  '.' . $infoFichierImage['extension'];
-rename('./Images/'.$image, $nouveau_nom_image);
 
-//On renomme les fichiers regle
-$infoFichierRegle = pathinfo('./Regles/'.$regle);
-$nouveau_nom_regle = $infoFichierRegle['dirname'] . '/' . $nom .  '.' . $infoFichierRegle['extension'];
-rename('./Regles/'.$regle, $nouveau_nom_regle);
-*/
-
-// Création du fichier php
-$nomFichier = $nom.'.php';
-include 'pageJeux.inc.php';
-// Fin de création du fichier
 
 //Connexion à la base de données
 include("connpdo.php");
@@ -54,8 +37,15 @@ $stmt->bindParam(':image', $nouveau_nom_image);
 
 if($stmt->execute()) {
 $_SESSION['message'] = "Ajout réussi.";
+// Création du fichier php
+$nomFichier = $nom.'.php';
+$GLOBALS['n'] = $nom;
+include 'pageJeux.inc.php';
 header("location:jeuAdmin.php");
+// Fin de création du fichier
 } else {  $_SESSION['message'] = "Problème Ajout.";
-
     header("location:jeuAdmin.php");  }
+
+    
+
 ?> 

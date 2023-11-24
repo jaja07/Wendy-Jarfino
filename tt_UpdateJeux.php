@@ -22,6 +22,8 @@ include("connpdo.php");
  
 // Récupérez les chemins relatifs actuels depuis la base de données
 if ($result) {
+    $ancienNom = $result['nom'];
+    $ancienPHP='temp/'.$ancienNom.'.php';
     $ancienCheminRegle = $result['regle'];
     $ancienCheminImage = $result['image'];
     $cheminRelatifRegle = $ancienCheminRegle;
@@ -71,6 +73,13 @@ if ($stmt = $pdo->prepare("UPDATE jeux SET nom=?, description=?, categorie=?, re
  
     // Exécutez la mise à jour
     if ($stmt->execute()) {
+        // Création du fichier php
+        unlink($PHP);
+        $nomFichier = $nom.'.php';
+        $GLOBALS['n'] = $nom;
+        include 'pageJeux.inc.php';
+        header("location:jeuAdmin.php");
+        // Fin de création du fichier
         $_SESSION['message'] = "Mise à jour réussie";
     } else {
         $_SESSION['message'] = "Impossible de mettre à jour";
@@ -80,7 +89,7 @@ if ($stmt = $pdo->prepare("UPDATE jeux SET nom=?, description=?, categorie=?, re
 }
  
 // Redirection vers la page des listes de jeux
-//header("location:jeuAdmin.php");
+header("location:jeuAdmin.php");
 ?>
 
 

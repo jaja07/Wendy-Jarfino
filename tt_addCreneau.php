@@ -20,10 +20,10 @@ $stmt2->bindParam(':idJeux', $idJeux);
 
 if($stmt2->execute()) {
 $_SESSION['message'] = "Ajout réussi.";
-header("location:accueilAdmin2.php");
+header("location:creneauAdmin.php");
 } else {  $_SESSION['message'] = "Problème Ajout.";
 
-    header("location:accueilAdmin2.php");  }
+    header("location:creneauAdmin.php");  }
 } else{
     $_SESSION['message'] = "Problème d'ID.";
 }

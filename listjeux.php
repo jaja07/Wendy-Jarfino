@@ -13,7 +13,7 @@
 
 
 
-<table class="table">
+<table class="table table-dark table-hover">
   <thead>
     <tr>
       <th scope="col">ID</th>

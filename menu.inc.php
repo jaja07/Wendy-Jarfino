@@ -9,9 +9,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="page.php">Une page</a>
-        </li>
+        
       </ul>
       <ul class="navbar-nav mb-lg-0">
         

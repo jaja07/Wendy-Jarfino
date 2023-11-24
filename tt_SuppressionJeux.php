@@ -45,6 +45,6 @@ $q_delete->closeCursor();
 
 
 
-//header("location:jeuAdmin.php");
+header("location:jeuAdmin.php");
 ?>
 

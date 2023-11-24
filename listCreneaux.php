@@ -28,7 +28,7 @@ $titre = "Liste créneaux";
     <h1>Listes des créneaux disponibles</h1>
 
     
-    <table class="table">
+    <table class="table table-dark table-hover">
         <thead>
             <tr>
                 <th scope="col">ID Creneau</th>

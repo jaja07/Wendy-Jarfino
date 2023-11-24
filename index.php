@@ -13,10 +13,11 @@
       h1 {
 	color: white;
          }
+        
 </style>
 
 
-<div class="container">
+<div class="container-fluid">
 
 
 <?php
@@ -28,7 +29,58 @@
         unset($_SESSION['message']);
     }
 ?>
-        <h1>ESIG'GAMES</h1>
+       <!-- Carousel -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="photos/chess.jpg" alt="Chess" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="photos/dames.jpg" alt="Dames" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="photos/Loup Garou.jpg" alt="Loup Garou" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="photos/Ludo.jpg" alt="Ludo" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="photos/Mancala.jpg" alt="Mancala" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="photos/Monopoly.jpg" alt="Monopoly" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="photos/Uno.jpg" alt="Uno" class="d-block w-100">
+    </div>
+  </div>
+
+  <!-- Left and right controls/icons -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+        
+
+</div>
+<?php
+    include 'footer.inc.php';
+?>
+
+<!-- 
+     <h1>ESIG'GAMES</h1>
         <p>
             <a href="./invite/cartes.php"> <img class="left" 
              src="photos\cartes.PNG" width="250" height="150" 
@@ -75,9 +127,4 @@
              alt="loup garou" title="" style="float:center;margin:10px 100px 50px 20px;" />
             </a>
             </p>
-        
-
-</div>
-<?php
-    include 'footer.inc.php';
-?>
+-->

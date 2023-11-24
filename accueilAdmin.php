@@ -41,7 +41,7 @@
                             '
                             <div class="col-lg-3 grid-item">
                                 
-                                    <a href=" ./temp/'. $nomSansExtension .'.php"><img src="' . $image . '" alt="Image" class="img-thumbnail image"></a>
+                                    <a href=" ./temp/'. $nomSansExtension .'.php?nomJeu=' .$nomSansExtension .'"><img src="' . $image . '" alt="Image" class="img-thumbnail image"></a>
                                 
                             </div>   ';
                              /*echo  '<div class="col-lg-3 grid-item"><a href="chess.php"><img src="' . $image . '" alt="Image" class="img-thumbnail image"></a> </div>';*/

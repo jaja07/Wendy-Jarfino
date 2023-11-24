@@ -21,9 +21,9 @@
             unset($_SESSION['message']);
             }
     ?>
-    <h1>Accueil</h1>
+    <h1>Liste des jeux</h1>
 
-    <table class="table">
+    <table class="table table-dark table-hover">
         <thead>
             <tr>
                 <th scope="col">#</th>
