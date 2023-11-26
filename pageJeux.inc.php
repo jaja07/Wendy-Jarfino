@@ -11,7 +11,7 @@ if ($handle) {
     require_once(\'../roleMembre.php\');
     $titre = \'$nom\';
     include \'../header.inc.php\';
-    include \'../menuMembre.inc.php\';
+    include \'menuMembreTemp.inc.php\';
 
 
 ?>

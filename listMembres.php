@@ -51,8 +51,8 @@
                     echo '<th scope="row">' . $i . '</th>';
                     echo '<td>' . $row['date'] . '</td>';
                     echo '<td>' . $row['nom'] . '</td>';
-                    echo '<td><a href="accepter.php?id=' . $row['id'] . '" >Accepter</a></td>';
-                    echo '<td><a href="refuser.php?id=' . $row['id'] . '" >Refuser</a></td>';
+                    echo '<td><a href="accepter.php?id=' . $row['id'] . '" style="color:green;">Accepter</a></td>';
+                    echo '<td><a href="refuser.php?id=' . $row['id'] . '" style="color:red;">Refuser</a></td>';
                     echo '</tr>';
                     $i++;
                 }

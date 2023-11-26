@@ -3,7 +3,7 @@
     require_once('../roleMembre.php');
     $titre = '$nom';
     include '../header.inc.php';
-    include '../menuMembre.inc.php';
+    include 'menuMembreTemp.inc.php';
 
 
 ?>
@@ -23,7 +23,7 @@
     ?>
     <h1></h1>
 
-    <table class="table">
+    <table class="table table-dark table-hover">
         <thead>
             <tr>
                 <th scope="col">#</th>
